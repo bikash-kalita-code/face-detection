@@ -19,7 +19,7 @@ def run(cam_id, delayTime, isDisplay, scale_percent):
     #cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
-    #cap.set(cv2.CAP_PROP_FPS, 4)
+    cap.set(cv2.CAP_PROP_FPS, 4)
     while cap.isOpened():
         print("Inside while loop of camera id : ", cam_id)
         #time.sleep(0.5)
@@ -93,8 +93,8 @@ t1 = threading.Thread(target=thread_receive, args=(ws,))
 t1.start()
  
 t2 = threading.Thread(target=run, args=(0, 1000, False, 40))
-#t3 = threading.Thread(target=run, args=(2, 1000, False, 40))
+t3 = threading.Thread(target=run, args=(2, 1000, False, 40))
  
 t2.start()
-#t3.start()
+t3.start()
 #run(4, 250, False, 50)
