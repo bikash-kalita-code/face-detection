@@ -7,10 +7,10 @@ import json
 import base64
  
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-count = 0
 
 # NOTE: As per the below changes, scale_percent hasn't been used and instead image resolution has been defined inside cap.set
 def run(cam_id, delayTime, isDisplay, scale_percent):
+    count = 0
     cap = cv2.VideoCapture(cam_id)
     #cap.set(cv2.cv2.CV_CAP_PROP_FPS, 4)
     #cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
@@ -92,7 +92,7 @@ def thread_receive(ws):
 t1 = threading.Thread(target=thread_receive, args=(ws,))
 t1.start()
  
-t2 = threading.Thread(target=run, args=(0, 1000, True, 40))
+t2 = threading.Thread(target=run, args=(0, 1000, False, 40))
 #t3 = threading.Thread(target=run, args=(2, 1000, False, 40))
  
 t2.start()
